@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import AuthKit from '../datakits/AuthKit'
 
 export default function LoginComponent() {
-    const ROOT_URL = 'https://lab.willandskill.eu'
+    const authKit = new AuthKit()
     const router = useRouter()
+
     const [loginStatus, SetLoginStatus] = useState(true)
     const [loginPayload, setLoginPayload] = useState({
         email: 'pelle@willandskill.se',
@@ -11,7 +13,7 @@ export default function LoginComponent() {
     })
 
     useEffect( () => {
-        if(localStorage.getItem('token')) {
+        if(authKit.getLocalStorageToken()) {
             router.push('/home')
         }
     }, [])
@@ -23,36 +25,15 @@ export default function LoginComponent() {
         })
     }
 
-    function handleBadRequest(response) {
-        if (!response.ok) {
-            throw Error(response.statusText)
-        }
-        return response
-    }
-
-    function SignInUser(e) {
+    async function SignInUser(e) {
         e.preventDefault()
+        const verifiedUser = await authKit.verifyUser(loginPayload)
 
-        const url = `${ROOT_URL}/api/v1/auth/api-token-auth/`
-        fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(loginPayload)
-
-        })
-            .then(handleBadRequest)
-            .then(res => res.json())
-            .then(data => {
-                localStorage.setItem('token', data.token)
-                console.log("success")
-                router.push('/home')
-            })
-            .catch(err => {
-                console.log(err)
-                SetLoginStatus(false)
-            })
+        if (verifiedUser) {
+            router.push('/home')
+        } else {
+            SetLoginStatus(false)
+        }
     }
 
     return (
