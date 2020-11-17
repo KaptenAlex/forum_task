@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function posts() {
+export default function post() {
     return (
         <div>
-            <h1>Posts page</h1>
+            This is a detail page.
         </div>
     )
 }
