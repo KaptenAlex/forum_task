@@ -1,6 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import AuthKit from '../datakits/AuthKit'
 import Link from 'next/link'
-export default function NavbarComponent(props) {
+
+export default function NavbarComponent() {
+
+    const authKit = new AuthKit();
+    const [user, setUser] = useState(null)
+
+    useEffect(async () => {
+        setUser(await authKit.fetchUserAccount())
+    }, [])
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -19,9 +29,11 @@ export default function NavbarComponent(props) {
                         </Link>
                     </li>
                 </ul>
-                <span className="navbar-text">
-                    Signed in as: {props.signedInUser}
-                </span>
+                {user && (
+                    <span className="navbar-text">
+                        Signed in as: {user.firstName} {user.lastName}
+                    </span>
+                )}
             </nav>
         </>
     )

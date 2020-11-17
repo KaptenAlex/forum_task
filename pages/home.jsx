@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import NavbarComponent from '../components/NavbarComponent'
-import AuthKit from '../datakits/AuthKit'
 
 //TODO: Get the token to serverside from client
 
@@ -13,38 +12,11 @@ import AuthKit from '../datakits/AuthKit'
 // }
 
 export default function home() {
-    const ROOT_URL = 'https://lab.willandskill.eu'
-    const authKit = new AuthKit();
-    const [user, setUser] = useState(null)
-
-    useEffect(() => {
-        fetchUserAccount()
-    }, [])
-
-    function fetchUserAccount() {
-        const url = `${ROOT_URL}/api/v1/me/`
-        return fetch(url, {
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${authKit.getLocalStorageToken()}`
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                setUser(data);
-            });
-    }
-
     return (
         <div>
-            {user && (
-                <div>
-                    <NavbarComponent
-                        signedInUser={`${user.firstName}  ${user.lastName}`}
-                    />
-                </div>
-            )}
+            <div>
+                <NavbarComponent />
+            </div>
             <h1>Home page!!!</h1>
             <div>
                 <h2>The WEBB19 Forum</h2>
