@@ -98,7 +98,7 @@ export default function RegisterComponent(props) {
                         >
                             {props.countries && props.countries.map((country, index) => {
                                 return (
-                                    <option key={index} value={country.title}>{country.title}</option>
+                                    <option key={index} value={country.id}>{country.title}</option>
                                 )
                             })}
                         </select>

@@ -35,6 +35,7 @@ export async function getServerSideProps() {
     const getCountries = await fetchCountries()
     const data = await getCountries.json()
     const countryList = data.results
+    console.log(countryList);
     
     return {
         props: {
