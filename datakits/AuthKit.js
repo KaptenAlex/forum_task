@@ -5,28 +5,34 @@ export default class {
     setLocalStorageToken(token) {
         localStorage.setItem('token', token)
     }
-    
     getLocalStorageToken() {
         return localStorage.getItem('token')
     }
-
+    setPrivateHeaders() {
+        return {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${this.getLocalStorageToken()}`
+        }
+    }
+    setPublicHeaders() {
+        return {
+            "Content-Type": "application/json"
+        }
+    }
     handleBadRequest(response) {
         if (!response.ok) {
             throw Error(response.statusText)
         }
         return response
     }
-
     async verifyUser(payload) {
         return await fetch(signInUrl, {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: this.setPublicHeaders(),
             body: JSON.stringify(payload)
         })
-            .then(this.handleBadRequest )
-            .then(res => res.json() )
+            .then(this.handleBadRequest)
+            .then(res => res.json())
             .then(data => {
                 this.setLocalStorageToken(data.token)
                 return true;
@@ -36,14 +42,10 @@ export default class {
                 return false;
             })
     }
-    
     async fetchUserAccount() {
         const url = `${ROOT_URL}/api/v1/me/`
         return fetch(url, {
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${this.getLocalStorageToken()}`
-            }
+            headers: this.setPrivateHeaders()
         })
             .then(res => res.json())
             .then(data => {
