@@ -19,7 +19,6 @@ export default function register(props) {
 
     return (
         <div>
-            <p>{props.ROOT_URL}</p>
             <RegisterComponent 
             rootUrl={'https://lab.willandskill.eu'}
             countries={props.countries}
@@ -35,7 +34,6 @@ export async function getServerSideProps() {
     const getCountries = await fetchCountries()
     const data = await getCountries.json()
     const countryList = data.results
-    console.log(countryList);
     
     return {
         props: {

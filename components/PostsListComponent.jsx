@@ -9,7 +9,7 @@ export default function PostsListComponent() {
     useEffect(async () => {
         setPosts(await forumKit.getPosts())
     }, [])
-
+    
     return (
         <>
             {posts && posts.map((post, index) => {

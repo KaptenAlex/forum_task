@@ -3,6 +3,8 @@ import AuthKit from "./AuthKit"
 const ROOT_URL = 'https://lab.willandskill.eu'
 const POSTS_URL = `${ROOT_URL}/api/v1/forum/posts/`
 const POST_DETAIL_URL = `${ROOT_URL}/api/v1/forum/posts/`
+const POSTS_CATEGORIES = `${ROOT_URL}/api/v1/forum/categories/`
+const POST_CREATE = `${ROOT_URL}/api/v1/forum/posts/`
 
 const authKit = new AuthKit()
 
@@ -24,9 +26,34 @@ export default class {
         })
         .then(res => res.json() )
         .then(data => {
-            console.log(data)
             return data
         })
     }
 
+    async createPost(payload) {
+        return await fetch(POST_CREATE, {
+            method: "POST",
+            headers: authKit.setPrivateHeaders(),
+            body: JSON.stringify(payload)
+        })
+        .then(authKit.handleBadRequest)
+        .then( res => res.json() )
+        .then(data => {
+            return true;
+        })
+        .catch(err => {
+            console.log(err);
+            return false;
+        })
+    }
+
+    async getCategories() {
+        return fetch(POSTS_CATEGORIES, {
+            headers: authKit.setPrivateHeaders()
+        })
+        .then(res => res.json() )
+        .then(data => {
+            return data.results
+        })
+    }
 }

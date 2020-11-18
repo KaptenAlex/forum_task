@@ -4,7 +4,7 @@ export default function AuthorComponent(props) {
     return (
         <>
             <h2>Author details</h2>
-            {Object.entries(props.author).map((item, index) => {
+            {props.author && Object.entries(props.author).map((item, index) => {
                 const capitalizedFirstChar = item[0].charAt(0).toUpperCase() + item[0].slice(1)
                 item[0] = capitalizedFirstChar.replace(/([a-z])([A-Z])/g, '$1 $2')
 
