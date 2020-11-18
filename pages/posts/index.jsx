@@ -8,16 +8,14 @@ export default function posts() {
         <>
             <NavbarComponent />
             <div className="container">
-                <div className="row">
+                <div className="mb-2">
                     <h1>Posts page</h1>
-                </div>
-                <div className="row mb-2">
                     <Link href="/posts/create">
                         <button className="btn btn-success">Create post</button>
                     </Link>
                 </div>
                 <div className="row">
-                    <PostsListComponent/>
+                    <PostsListComponent />
                 </div>
             </div>
         </>
