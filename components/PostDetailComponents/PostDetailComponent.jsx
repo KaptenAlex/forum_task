@@ -19,7 +19,6 @@ export default function PostDetailComponent(props) {
 
     function filterPostData() {
         const allowedPostKeys = [
-            'author',
             'category',
             'content',
             'countResponses',
@@ -57,7 +56,7 @@ export default function PostDetailComponent(props) {
                     <div className="row mt-5">
                         <div className="col-lg-8">
                             <PostComponent
-                            post={postDetails}
+                            postDetail={postDetails}
                             />
                         </div>
                         <div className="col-lg-4">
