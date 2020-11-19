@@ -13,36 +13,36 @@ export default function PostDetailComponent(props) {
         setPost(await forumKit.getPostDetails(props.postId))
     }, [])
 
-    useEffect( () => {
+    useEffect(() => {
         setPostDetails(filterPostData())
     }, [post])
 
     function filterPostData() {
         const allowedPostKeys = [
-            'category',
+            // 'category',
             'content',
-            'countResponses',
+            // 'countResponses',
             'country',
             'createdAt',
-            'files',
+            //'files',
             'id',
             'isClosed',
             'isPinned',
             'parent',
-            'responses',
+            // 'responses',
             'title',
             'updatedAt',
             'userSubcriptionUpdated',
             'userSubscribed',
             'viewCount'
         ]
-        if(post) {
+        if (post) {
             const postData = post;
             const filteredPostData = Object.keys(postData).filter(key => allowedPostKeys.includes(key))
-            .reduce( (obj, key) => {
-                obj[key] = postData[key]
-                return obj
-            }, {})
+                .reduce((obj, key) => {
+                    obj[key] = postData[key]
+                    return obj
+                }, {})
 
             return filteredPostData
         }
@@ -53,18 +53,35 @@ export default function PostDetailComponent(props) {
             <NavbarComponent />
             <div className="container">
                 {post && (
-                    <div className="row mt-5">
-                        <div className="col-lg-8">
-                            <PostComponent
-                            postDetail={postDetails}
-                            />
+                    <>
+                        <div className="row mt-5">
+                            <div className="col-lg-8">
+                                <PostComponent
+                                    postDetail={postDetails}
+                                />
+                            </div>
+                            <div className="col-lg-4">
+                                <AuthorComponent
+                                    author={post.author}
+                                />
+                            </div>
                         </div>
-                        <div className="col-lg-4">
-                            <AuthorComponent
-                                author={post.author}
-                            />
+                        <div className="row mt-3">
+                            <div className="col-lg-12">
+                                hej1
+                            </div>
                         </div>
-                    </div>
+                        <div className="row mt-3">
+                            <div className="col-lg-12">
+                                hej2
+                            </div>
+                        </div>
+                        <div className="row mt-3">
+                            <div className="col-lg-12">
+                                hej3
+                            </div>
+                        </div>
+                    </>
                 )}
             </div>
         </>
