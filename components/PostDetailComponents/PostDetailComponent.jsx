@@ -70,10 +70,11 @@ export default function PostDetailComponent(props) {
                             </div>
                         </div>
                         <div className="row mt-3">
-                            <PostCategoryComponent />
-                        </div>
-                        <div className="row mt-3">
-                            <PostFilesComponent />
+                            <PostCategoryComponent
+                            category={post.category}
+                            />
+                            <PostFilesComponent
+                            />
                         </div>
                         <div className="row mt-3">
                             <PostResponsesComponent />
