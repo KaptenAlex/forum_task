@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ForumKit from '../../datakits/ForumKit'
 import NavbarComponent from '../NavbarComponent'
-import AuthorComponent from './AuthorComponent'
+import AuthorComponent from './PostAuthorComponent'
 import PostCategoryComponent from './PostCategoryComponent'
 import PostComponent from './PostComponent'
 import PostFilesComponent from './PostFilesComponent'
@@ -23,14 +23,12 @@ export default function PostDetailComponent(props) {
     function filterPostData() {
         const allowedPostKeys = [
             'content',
-            // 'countResponses',
             'country',
             'createdAt',
             'id',
             'isClosed',
             'isPinned',
             'parent',
-            // 'responses',
             'title',
             'updatedAt',
             'userSubcriptionUpdated',
@@ -69,14 +67,17 @@ export default function PostDetailComponent(props) {
                         </div>
                         <div className="row mt-3">
                             <PostCategoryComponent
-                            category={post.category}
+                                category={post.category}
                             />
                             <PostFilesComponent
-                            files={post.files}
+                                files={post.files}
                             />
                         </div>
                         <div className="row mt-3">
-                            <PostResponsesComponent />
+                            <PostResponsesComponent
+                                responses={post.responses}
+                                noOfResponses={post.countResponses}
+                            />
                         </div>
                     </>
                 )}
