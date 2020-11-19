@@ -22,12 +22,10 @@ export default function PostDetailComponent(props) {
 
     function filterPostData() {
         const allowedPostKeys = [
-            // 'category',
             'content',
             // 'countResponses',
             'country',
             'createdAt',
-            //'files',
             'id',
             'isClosed',
             'isPinned',
@@ -74,6 +72,7 @@ export default function PostDetailComponent(props) {
                             category={post.category}
                             />
                             <PostFilesComponent
+                            files={post.files}
                             />
                         </div>
                         <div className="row mt-3">

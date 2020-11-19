@@ -4,7 +4,6 @@ export default function PostCategoryComponent(props) {
     return (
         <div className="col-lg-6">
             <h2>Post category</h2>
-            {console.log(props.category)}
             <ul>
                 {props.category && Object.entries(props.category).map((categoryItems, index) => {
                     return (
