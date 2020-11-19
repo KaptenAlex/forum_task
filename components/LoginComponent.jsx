@@ -40,7 +40,8 @@ export default function LoginComponent() {
         <div className="container">
             <div className="d-flex justify-content-center">
                 <div className="col-lg-4">
-                    <h1>WEBB19 Login page</h1>
+                    <h1 className="mb-0">WEBB19</h1>
+                    <h1>Login page</h1>
                     <form className="" method="POST" onSubmit={SignInUser}>
                         <div className="input-group mb-3">
                             <div className="input-group-prepend">
@@ -56,7 +57,7 @@ export default function LoginComponent() {
                             />
                         </div>
                         <div className="input-group mb-3">
-                        <div className="input-group-prepend">
+                            <div className="input-group-prepend">
                                 <span className="input-group-text">Password</span>
                             </div>
                             <input

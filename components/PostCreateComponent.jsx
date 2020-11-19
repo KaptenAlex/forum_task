@@ -35,61 +35,57 @@ export default function PostCreateComponent() {
     }
 
     return (
-        <div className="container">
-            <div className="d-flex justify-content-center">
-                <div className="col-lg-8">
-                    <h2>Create a post</h2>
-                    <form onSubmit={createPost}>
-                        <div className="input-group mb-3">
-                            <div className="input-group-prepend">
-                                <span className="input-group-text">Title</span>
-                            </div>
-                            <input
-                                type="text"
-                                className="form-control"
-                                name="title"
-                                placeholder="Title"
-                                onChange={updatePostPayload}
-                            />
-                        </div>
-                        <div className="input-group mb-3">
-                            <div className="input-group-prepend">
-                                <span className="input-group-text">Content</span>
-                            </div>
-                            <textarea
-                                className="form-control"
-                                name="content"
-                                placeholder="Content"
-                                onChange={updatePostPayload}>
-                            </textarea>
-                        </div>
-                        <div className="input-group mb-3">
-                            <div className="input-group-prepend">
-                                <span className="input-group-text">Category</span>
-                            </div>
-                            <select
-                                className="form-control"
-                                name="category"
-                                onChange={updatePostPayload}
-                            >
-                                {categories && categories.map((category, index) => {
-                                    return (
-                                        <option key={index} value={category.id}>{category.title}</option>
-                                    )
-                                })}
-                            </select>
-                        </div>
-                        {!postResponseStatus && (
-                            <div className="alert alert-danger mt-2">
-                                Unable to create post with provided data
-                            </div>
-                        )}
-                        <div>
-                            <button className="btn btn-success" type="submit">Submit post</button>
-                        </div>
-                    </form>
+        <>
+            <h2>Create a post</h2>
+            <form onSubmit={createPost}>
+                <div className="input-group mb-3">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text">Title</span>
+                    </div>
+                    <input
+                        type="text"
+                        className="form-control"
+                        name="title"
+                        placeholder="Title"
+                        onChange={updatePostPayload}
+                    />
                 </div>
-            </div>
-        </div>
+                <div className="input-group mb-3">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text">Content</span>
+                    </div>
+                    <textarea
+                        className="form-control"
+                        name="content"
+                        placeholder="Content"
+                        onChange={updatePostPayload}>
+                    </textarea>
+                </div>
+                <div className="input-group mb-3">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text">Category</span>
+                    </div>
+                    <select
+                        className="form-control"
+                        name="category"
+                        onChange={updatePostPayload}
+                    >
+                        {categories && categories.map((category, index) => {
+                            return (
+                                <option key={index} value={category.id}>{category.title}</option>
+                            )
+                        })}
+                    </select>
+                </div>
+                {!postResponseStatus && (
+                    <div className="alert alert-danger mt-2">
+                        Unable to create post with provided data
+                    </div>
+                )}
+                <div>
+                    <button className="btn btn-success" type="submit">Submit post</button>
+                </div>
+            </form>
+        </>
     )
 }
