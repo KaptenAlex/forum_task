@@ -12,8 +12,8 @@ export default function LoginComponent() {
         password: 'pellesvanslos'
     })
 
-    useEffect( () => {
-        if(authKit.getLocalStorageToken()) {
+    useEffect(() => {
+        if (authKit.getLocalStorageToken()) {
             router.push('/home')
         }
     }, [])
@@ -37,41 +37,49 @@ export default function LoginComponent() {
     }
 
     return (
-        <div>
-            <h1>Login page</h1>
-            <div>
-                <form method="POST" onSubmit={SignInUser}>
-                    <div>
-                        <label>Email</label>
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Email"
-                            onChange={updateLoginPayload}
-                            value={loginPayload.email}
-                        />
-                    </div>
-                    <div>
-                        <label>Password</label>
-                        <input
-                            type="password"
-                            name="password"
-                            placeholder="Password"
-                            onChange={updateLoginPayload}
-                            value={loginPayload.password}
-                        />
-                    </div>
-
-                    {!loginStatus && (
-                        <div>
-                            <p style={{backgroundColor: "red"}}>Unable to log in with provided credentials</p>
+        <div className="container">
+            <div className="d-flex justify-content-center">
+                <div className="col-lg-4">
+                    <h1>WEBB19 Login page</h1>
+                    <form className="" method="POST" onSubmit={SignInUser}>
+                        <div className="input-group mb-3">
+                            <div className="input-group-prepend">
+                                <span className="input-group-text">Email</span>
+                            </div>
+                            <input
+                                type="email"
+                                className="form-control"
+                                name="email"
+                                placeholder="Email"
+                                onChange={updateLoginPayload}
+                                value={loginPayload.email}
+                            />
                         </div>
-                    )}
+                        <div className="input-group mb-3">
+                        <div className="input-group-prepend">
+                                <span className="input-group-text">Password</span>
+                            </div>
+                            <input
+                                type="password"
+                                className="form-control"
+                                name="password"
+                                placeholder="Password"
+                                onChange={updateLoginPayload}
+                                value={loginPayload.password}
+                            />
+                        </div>
 
-                    <div>
-                        <button type="submit">Sign in</button>
-                    </div>
-                </form>
+                        {!loginStatus && (
+                            <div className="alert alert-danger">
+                                Unable to log in with provided credentials
+                            </div>
+                        )}
+
+                        <div>
+                            <button className="btn btn-success btn-lg btn-block" type="submit">Sign in</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     )
