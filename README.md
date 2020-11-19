@@ -37,9 +37,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - React Components [x]
 - Styled Components []
 - useState [x]
--  useEffect [x]
--  Dynamic routes [x]
--  localStorage [x]
+- useEffect [x]
+- Dynamic routes [x]
+- localStorage [x]
 
  ### For higher grade than pass (VG) you must use all of the technologies below
  - Styled Components Inheritance []
