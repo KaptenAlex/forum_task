@@ -19,13 +19,19 @@ export default function register(props) {
 
     return (
         <div>
-            <RegisterComponent 
-            rootUrl={'https://lab.willandskill.eu'}
-            countries={props.countries}
+            <RegisterComponent
+                rootUrl={'https://lab.willandskill.eu'}
+                countries={props.countries}
             />
-            <Link href="/">
-                <a>Already have an account? Sign in</a>
-            </Link>
+            <div className="container mt-2">
+                <div className="d-flex justify-content-center">
+                    <div className="col-lg-4">
+                        <Link href="/">
+                            <a className="btn btn-primary btn-lg btn-block">Already have an account? Sign in</a>
+                        </Link>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
@@ -34,7 +40,7 @@ export async function getServerSideProps() {
     const getCountries = await fetchCountries()
     const data = await getCountries.json()
     const countryList = data.results
-    
+
     return {
         props: {
             countries: countryList

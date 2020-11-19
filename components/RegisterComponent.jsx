@@ -36,83 +36,104 @@ export default function RegisterComponent(props) {
             },
             body: JSON.stringify(registerPayload)
         })
-        .then(handleBadRequest)
-        .then(res => res.json() )
-        .then(data => {
-            router.push('/')
-        })
-        .catch(err => {
-            console.log(err);
-            setRegisterStatus(false);
-        })
+            .then(handleBadRequest)
+            .then(res => res.json())
+            .then(data => {
+                router.push('/')
+            })
+            .catch(err => {
+                console.log(err);
+                setRegisterStatus(false);
+            })
     }
 
     return (
-        <div>
-            <div>
-                <h1>Register a account</h1>
-            </div>
-            <div>
-                <form method="POST" onSubmit={registerAnAccount}>
+        <div className="container">
+            <div className="d-flex justify-content-center">
+                <div className="col-lg-4">
                     <div>
-                        <label>Email</label>
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Email"
-                            onChange={updateRegisterPayload}
-                        />
+                        <h1 className="mb-0">WEBB19 FORUM</h1>
+                        <h1>Register a account</h1>
+                        <div>
+                            <form method="POST" onSubmit={registerAnAccount}>
+                                <div className="input-group mb-3">
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text">Email</span>
+                                    </div>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        className="form-control"
+                                        placeholder="Email"
+                                        onChange={updateRegisterPayload}
+                                    />
+                                </div>
+                                <div className="input-group mb-3">
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text">Password</span>
+                                    </div>
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        className="form-control"
+                                        placeholder="Password"
+                                        onChange={updateRegisterPayload}
+                                    />
+                                </div>
+                                <div className="input-group mb-3">
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text">First name</span>
+                                    </div>
+                                    <input
+                                        type="text"
+                                        name="firstName"
+                                        className="form-control"
+                                        placeholder="First name"
+                                        onChange={updateRegisterPayload}
+                                    />
+                                </div>
+                                <div className="input-group mb-3">
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text">Last name</span>
+                                    </div>
+                                    <input
+                                        type="text"
+                                        name="lastName"
+                                        className="form-control"
+                                        placeholder="Last name"
+                                        onChange={updateRegisterPayload}
+                                    />
+                                </div>
+                                <div className="input-group mb-3">
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text">Country</span>
+                                    </div>
+                                    <select
+                                        onChange={updateRegisterPayload}
+                                        name="country"
+                                        className="form-control"
+                                    >
+                                        {props.countries && props.countries.map((country, index) => {
+                                            return (
+                                                <option key={index} value={country.id}>{country.title}</option>
+                                            )
+                                        })}
+                                    </select>
+                                </div>
+                                {!registerStatus && (
+                                    <div className="alert alert-danger">
+                                        Unable to register with provided credentials
+                                    </div>
+                                )}
+                                <div>
+                                    <button className="btn btn-success btn-lg btn-block" type="submit">Create account</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div>
-                        <label>Password</label>
-                        <input
-                            type="password"
-                            name="password"
-                            placeholder="Password"
-                            onChange={updateRegisterPayload}
-                        />
-                    </div>
-                    <div>
-                        <label>First name</label>
-                        <input
-                            type="text"
-                            name="firstName"
-                            placeholder="First name"
-                            onChange={updateRegisterPayload}
-                        />
-                    </div>
-                    <div>
-                        <label>Last name</label>
-                        <input
-                            type="text"
-                            name="lastName"
-                            placeholder="Last name"
-                            onChange={updateRegisterPayload}
-                        />
-                    </div>
-                    <div>
-                        <label>Country</label>
-                        <select
-                            onChange={updateRegisterPayload}
-                            name="country"
-                        >
-                            {props.countries && props.countries.map((country, index) => {
-                                return (
-                                    <option key={index} value={country.id}>{country.title}</option>
-                                )
-                            })}
-                        </select>
-                    </div>
-                    <div>
-                        <button type="submit">Create account</button>
-                    </div>
-                </form>
-                {!registerStatus && (
-                    <div>
-                        <p style={{ backgroundColor: "red" }}>Unable to register with provided credentials</p>
-                    </div>
-                )}
+                </div>
             </div>
         </div>
+
     )
 }
