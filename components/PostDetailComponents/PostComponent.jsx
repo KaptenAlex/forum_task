@@ -1,19 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 export default function PostComponent(props) {
     return (
         <>
             <h2>Post details</h2>
             <ul>
-                {props.postDetail && Object.entries(props.postDetail).map((postDetail, index) => {
-                    if (typeof postDetail[1] === 'object') {
-                        return (
-                            <li key={index}>{postDetail[0]}</li>
-                        )
-                    } else {                        
-                        return (
-                        <li key={index}>{postDetail[0]} {postDetail[1]}</li>
-                        )
+                {props.postDetail && Object.entries(props.postDetail).map((postObject, index) => {
+                    if (!Array.isArray(postObject[1]) && typeof postObject[1] !== 'object') {
+                        if (!postObject[1]) {
+                            return (
+                                <li key={index}><h4>{postObject[0]}: Not available</h4></li>
+                            )
+                        } else {
+                            return (
+                                <li key={index}><h4>{postObject[0]}: {postObject[1]}</h4></li>
+                            )
+                        }
                     }
                 })}
             </ul>
