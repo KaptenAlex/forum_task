@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import PostDetailDataContext from '../../contexts/PostDetailDataContext'
 
-export default function AuthorComponent(props) {
+export default function PostAuthorComponent(props) {
+    const postDetailContext = useContext(PostDetailDataContext)
     return (
         <>
             <h2>Author details</h2>
