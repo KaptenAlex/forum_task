@@ -28,3 +28,22 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+# Inlämingsuppgift forum - Alexander Wilson WEBB19
+
+### To pass (G) this task you must use all of the following technologies
+- React [x]
+- React Components [x]
+- Styled Components []
+- useState [x]
+-  useEffect [x]
+-  Dynamic routes [x]
+-  localStorage [x]
+
+ ### For higher grade than pass (VG) you must use all of the technologies below
+ - Styled Components Inheritance []
+ - useContext (or useReducer) []
+ - Next.js (Either getServerSideProps or getStaticProps must be used) [x]
+ - Deploy to vercel []
+ - Add possibility to add a response []
