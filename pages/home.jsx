@@ -1,16 +1,6 @@
 import React from 'react'
 import NavbarComponent from '../components/NavbarComponent'
 
-//TODO: Get the token to serverside from client
-
-// const ROOT_URL = 'https://lab.willandskill.eu'
-// function fetchUserAccount() {
-//     const url = `${ROOT_URL}/api/v1/me/`
-//     const token = localStorage.getItem('token')
-
-//     return fetch(url);
-// }
-
 export default function home() {
     return (
         <div>
@@ -30,14 +20,3 @@ export default function home() {
         </div>
     )
 }
-
-// export async function getServerSideProps() {
-//     const fetchUser = await fetchUserAccount()
-//     const data = await fetchUser.json()
-//     console.log(data)
-//     return {
-//         props: {
-//             userAccount: data
-//         }
-//     }
-// }
