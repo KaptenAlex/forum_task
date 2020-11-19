@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react'
 import ForumKit from '../../datakits/ForumKit'
 import NavbarComponent from '../NavbarComponent'
 import AuthorComponent from './AuthorComponent'
+import PostCategoryComponent from './PostCategoryComponent'
 import PostComponent from './PostComponent'
+import PostFilesComponent from './PostFilesComponent'
+import PostResponsesComponent from './PostResponsesComponent'
 
 export default function PostDetailComponent(props) {
     const forumKit = new ForumKit()
@@ -67,19 +70,13 @@ export default function PostDetailComponent(props) {
                             </div>
                         </div>
                         <div className="row mt-3">
-                            <div className="col-lg-12">
-                                hej1
-                            </div>
+                            <PostCategoryComponent />
                         </div>
                         <div className="row mt-3">
-                            <div className="col-lg-12">
-                                hej2
-                            </div>
+                            <PostFilesComponent />
                         </div>
                         <div className="row mt-3">
-                            <div className="col-lg-12">
-                                hej3
-                            </div>
+                            <PostResponsesComponent />
                         </div>
                     </>
                 )}
