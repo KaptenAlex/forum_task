@@ -43,7 +43,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
  ### For higher grade than pass (VG) you must use all of the technologies below
  - Styled Components Inheritance []
- - useContext (or useReducer) []
+ - useContext [x]
+ - (or useReducer) []
  - Next.js (Either getServerSideProps or getStaticProps must be used) [x]
  - Deploy to vercel []
  - Add possibility to add a response []

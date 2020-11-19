@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState, useReducer } from 'react'
 import ForumKit from '../../datakits/ForumKit'
 import NavbarComponent from '../NavbarComponent'
 import PostAuthorComponent from './PostAuthorComponent'
@@ -53,38 +53,35 @@ export default function PostDetailComponent(props) {
             <NavbarComponent />
 
             <div className="container">
-                <PostDetailDataContext.Provider value={post}>
-                    {post && (
+                {post && (
+                    <PostDetailDataContext.Provider
+                        value={{
+                            postDetails: postDetails,
+                            postAuthor: post.author,
+                            postCategory: post.category,
+                            postFiles: post.files,
+                            postResponses: post.responses,
+                            postNoOfResponses: post.countResponses
+                        }}>
                         <>
                             <div className="row mt-5">
                                 <div className="col-lg-8">
-                                    <PostComponent
-                                        postDetail={postDetails}
-                                    />
+                                    <PostComponent />
                                 </div>
                                 <div className="col-lg-4">
-                                    <PostAuthorComponent
-                                        author={post.author}
-                                    />
+                                    <PostAuthorComponent />
                                 </div>
                             </div>
                             <div className="row mt-3">
-                                <PostCategoryComponent
-                                    category={post.category}
-                                />
-                                <PostFilesComponent
-                                    files={post.files}
-                                />
+                                <PostCategoryComponent />
+                                <PostFilesComponent />
                             </div>
                             <div className="row mt-3">
-                                <PostResponsesComponent
-                                    responses={post.responses}
-                                    noOfResponses={post.countResponses}
-                                />
+                                <PostResponsesComponent />
                             </div>
                         </>
-                    )}
-                </PostDetailDataContext.Provider>
+                    </PostDetailDataContext.Provider>
+                )}
             </div>
         </>
     )
