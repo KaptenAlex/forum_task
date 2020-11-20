@@ -10,8 +10,8 @@ export default function LoginComponent() {
 
     const [loginStatus, SetLoginStatus] = useState(true)
     const [loginPayload, setLoginPayload] = useState({
-        email: 'pelle@willandskill.se',
-        password: 'pellesvanslos'
+        email: 'sehixa@mail.com',
+        password: 'Testar123'
     })
 
     useEffect(() => {
