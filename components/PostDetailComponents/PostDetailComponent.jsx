@@ -55,16 +55,18 @@ export default function PostDetailComponent(props) {
             <div className="container">
                 {post && (
                     <PostDetailDataContext.Provider
-                        value={{
-                            postDetails: postDetails,
-                            postAuthor: post.author,
-                            postCategory: post.category,
-                            postFiles: post.files,
-                            postResponses: post.responses,
-                            postNoOfResponses: post.countResponses
-                        }}>
+                    value={{
+                        postDetails: postDetails,
+                        postAuthor: post.author,
+                        postCategory: post.category,
+                        postFiles: post.files,
+                        postResponses: post.responses,
+                        postNoOfResponses: post.countResponses,
+                        postId: post.id
+                    }}>
                         <>
                             <div className="row mt-5">
+                                {console.log(post)}
                                 <div className="col-lg-8">
                                     <PostComponent />
                                 </div>

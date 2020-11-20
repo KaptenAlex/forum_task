@@ -5,6 +5,7 @@ const POSTS_URL = `${ROOT_URL}/api/v1/forum/posts/`
 const POST_DETAIL_URL = `${ROOT_URL}/api/v1/forum/posts/`
 const POSTS_CATEGORIES = `${ROOT_URL}/api/v1/forum/categories/`
 const POST_CREATE = `${ROOT_URL}/api/v1/forum/posts/`
+const POST_CREATE_REPLY = `${ROOT_URL}/api/v1/forum/posts/`
 
 const authKit = new AuthKit()
 
@@ -27,6 +28,23 @@ export default class {
         .then(res => res.json() )
         .then(data => {
             return data
+        })
+    }
+
+    async createResponseToPost(payload) {
+        return await fetch(POST_CREATE_REPLY, {
+            method: "POST",
+            headers: authKit.setPrivateHeaders(),
+            body: JSON.stringify(payload)
+        })
+        .then(authKit.handleBadRequest)
+        .then( res => res.json() )
+        .then(data => {
+            return true;
+        })
+        .catch(err => {
+            console.log(err);
+            return false;
         })
     }
 
