@@ -3,8 +3,7 @@ import StyledComponents from '../styled_components/StyledComponents'
 import NavbarComponent from '../components/NavbarComponent'
 
 export default function home() {
-    const { StyledHeadingOne } = StyledComponents
-    console.log(StyledHeadingOne);
+    const { StyledHeadingOne, StyledWebb19Heading } = StyledComponents
     return (
         <div>
             <div>
@@ -13,9 +12,9 @@ export default function home() {
             <div className="container">
                 <div className="d-flex justify-content-center">
                     <div className="col-lg-6">
-                    <StyledHeadingOne>
+                    <StyledWebb19Heading>
                         WEBB19
-                    </StyledHeadingOne>
+                    </StyledWebb19Heading>
                     <StyledHeadingOne>
                         Home page
                     </StyledHeadingOne>
