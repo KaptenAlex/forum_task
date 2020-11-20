@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import AuthKit from '../datakits/AuthKit'
+import StyledComponents from '../styled_components/StyledComponents'
 
 export default function LoginComponent() {
+    const { StyledWebb19Heading } = StyledComponents
     const authKit = new AuthKit()
     const router = useRouter()
 
@@ -40,8 +42,9 @@ export default function LoginComponent() {
         <div className="container">
             <div className="d-flex justify-content-center">
                 <div className="col-lg-4">
-                    <h1 className="mb-0">WEBB19 FORUM</h1>
-                    <h1>Login page</h1>
+                    <StyledWebb19Heading>
+                        WEBB19
+                    </StyledWebb19Heading>
                     <form method="POST" onSubmit={SignInUser}>
                         <div className="input-group mb-3">
                             <div className="input-group-prepend">

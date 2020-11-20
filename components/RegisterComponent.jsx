@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
+import StyledComponents from '../styled_components/StyledComponents'
 
 export default function RegisterComponent(props) {
     const router = useRouter()
+    const { StyledWebb19Heading } = StyledComponents
     const [registerStatus, setRegisterStatus] = useState(true)
     const [registerPayload, setRegisterPayload] = useState({
         email: '',
@@ -52,7 +54,9 @@ export default function RegisterComponent(props) {
             <div className="d-flex justify-content-center">
                 <div className="col-lg-4">
                     <div>
-                        <h1 className="mb-0">WEBB19 FORUM</h1>
+                        <StyledWebb19Heading>
+                            WEBB19
+                        </StyledWebb19Heading>
                         <h1>Register a account</h1>
                         <div>
                             <form method="POST" onSubmit={registerAnAccount}>

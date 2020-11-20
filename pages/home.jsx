@@ -1,9 +1,15 @@
 import React from 'react'
+import styled from 'styled-components'
 import StyledComponents from '../styled_components/StyledComponents'
 import NavbarComponent from '../components/NavbarComponent'
 
+const { StyledWebb19Heading } = StyledComponents
+
+const StyledWebb19HeadingColoured = styled(StyledWebb19Heading)`
+    color: black;
+`
+
 export default function home() {
-    const { StyledHeadingOne, StyledWebb19Heading } = StyledComponents
     return (
         <div>
             <div>
@@ -15,11 +21,10 @@ export default function home() {
                     <StyledWebb19Heading>
                         WEBB19
                     </StyledWebb19Heading>
-                    <StyledHeadingOne>
-                        Home page
-                    </StyledHeadingOne>
                         <div>
-                            <h1>What is this forum?</h1>
+                            <StyledWebb19HeadingColoured>
+                                What is this forum?
+                            </StyledWebb19HeadingColoured>
                             <h5>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                 Iste, error. Maxime unde eos, cumque id dignissimos magnam repellendus nam similique officiis saepe nobis, eius alias odio.

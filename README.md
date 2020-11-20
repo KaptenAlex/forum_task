@@ -35,14 +35,14 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ### To pass (G) this task you must use all of the following technologies
 - React [x]
 - React Components [x]
-- Styled Components []
+- Styled Components [x]
 - useState [x]
 - useEffect [x]
 - Dynamic routes [x]
 - localStorage [x]
 
  ### For higher grade than pass (VG) you must use all of the technologies below
- - Styled Components Inheritance []
+ - Styled Components Inheritance [x]
  - useContext [x]
  - (or useReducer) []
  - Next.js (Either getServerSideProps or getStaticProps must be used) [x]
