@@ -15,7 +15,7 @@ export default function PostResponsesComponent() {
                     </div>
                 )}
             </div>
-            {postResponses && postResponses.reverse().map((response, index) => {
+            {postResponses && postResponses.map((response, index) => {
                 return (
                     <div key={index} className="alert alert-dark">
                         <h3>{response.author.firstName} {response.author.lastName}</h3>
