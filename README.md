@@ -47,4 +47,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
  - (or useReducer) []
  - Next.js (Either getServerSideProps or getStaticProps must be used) [x]
  - Deploy to vercel []
- - Add possibility to add a response []
+ - Add possibility to add a response [x]
