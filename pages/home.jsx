@@ -1,7 +1,10 @@
 import React from 'react'
+import StyledComponents from '../styled_components/StyledComponents'
 import NavbarComponent from '../components/NavbarComponent'
 
 export default function home() {
+    const { StyledHeadingOne } = StyledComponents
+    console.log(StyledHeadingOne);
     return (
         <div>
             <div>
@@ -10,8 +13,12 @@ export default function home() {
             <div className="container">
                 <div className="d-flex justify-content-center">
                     <div className="col-lg-6">
-                    <h1 className="mb-0">WEBB19</h1>
-                    <h1>Home page</h1>
+                    <StyledHeadingOne>
+                        WEBB19
+                    </StyledHeadingOne>
+                    <StyledHeadingOne>
+                        Home page
+                    </StyledHeadingOne>
                         <div>
                             <h1>What is this forum?</h1>
                             <h5>
