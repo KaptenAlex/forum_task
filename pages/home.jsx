@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import StyledComponents from '../styled_components/StyledComponents'
 import NavbarComponent from '../components/NavbarComponent'
@@ -10,6 +11,13 @@ const StyledWebb19HeadingColoured = styled(StyledWebb19Heading)`
 `
 
 export default function home() {
+    const router = useRouter();
+    useEffect( () => {
+        if (!localStorage.getItem('token')) {
+            router.push('/')
+        }
+    }, [])
+
     return (
         <div>
             <div>

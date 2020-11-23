@@ -10,8 +10,8 @@ export default function LoginComponent() {
 
     const [loginStatus, SetLoginStatus] = useState(true)
     const [loginPayload, setLoginPayload] = useState({
-        email: 'sehixa@mail.com',
-        password: 'Testar123'
+        email: '',
+        password: ''
     })
 
     useEffect(() => {
@@ -56,7 +56,6 @@ export default function LoginComponent() {
                                 name="email"
                                 placeholder="Email"
                                 onChange={updateLoginPayload}
-                                value={loginPayload.email}
                             />
                         </div>
                         <div className="input-group mb-3">
@@ -69,7 +68,6 @@ export default function LoginComponent() {
                                 name="password"
                                 placeholder="Password"
                                 onChange={updateLoginPayload}
-                                value={loginPayload.password}
                             />
                         </div>
 

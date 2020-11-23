@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useRouter } from 'next/router'
 import PostDetailComponent from '../../components/PostDetailComponents/PostDetailComponent'
 
 export default function post(props) {
+    const router = useRouter();
+    
+    useEffect( () => {
+        if (!localStorage.getItem('token')) {
+            router.push('/')
+        }
+    }, [])
+    
     return (
         <div>
             <PostDetailComponent
