@@ -13,12 +13,13 @@
  - Styled Components Inheritance [x]
  - useContext (or useReducer) [x]
  - Next.js (Either getServerSideProps or getStaticProps must be used) [x]
- - Deploy to vercel []
+ - Deploy to vercel [x]
  - Add possibility to add a response [x]
 
- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
+
+ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, run the development server:
 
@@ -29,3 +30,8 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Vercel deployment
+The link to the project hosted at Vercel:
+
+https://forum-task-five.vercel.app/
