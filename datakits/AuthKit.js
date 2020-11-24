@@ -25,6 +25,15 @@ export default class {
         }
         return response
     }
+    signOutUser() {
+        try {
+            localStorage.removeItem('token')
+            return true;
+        } catch (error) {
+            console.log('Could not sign out, please try again later.');
+            return false;
+        }
+    }
     async verifyUser(payload) {
         return await fetch(signInUrl, {
             method: "POST",

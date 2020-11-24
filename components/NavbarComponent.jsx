@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import AuthKit from '../datakits/AuthKit'
 import Link from 'next/link'
 
 export default function NavbarComponent() {
-
-    const authKit = new AuthKit();
+    const router = useRouter()
+    const authKit = new AuthKit()
     const [user, setUser] = useState(null)
+
+    function signOutUser() {
+        authKit.signOutUser()
+        router.push('/')
+    }
 
     useEffect(async () => {
         setUser(await authKit.fetchUserAccount())
@@ -29,10 +35,17 @@ export default function NavbarComponent() {
                         </Link>
                     </li>
                 </ul>
-                {user && (
+                {user && ( 
+                    <>
                     <span className="navbar-text">
                         Signed in as: {user.firstName} {user.lastName}
                     </span>
+                    <div className="nav-item">
+                        <button onClick={signOutUser} className="ml-2 btn btn-secondary">
+                            Sign out
+                        </button>
+                    </div>
+                    </>
                 )}
             </nav>
         </>
