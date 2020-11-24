@@ -11,7 +11,7 @@ export default function RegisterComponent(props) {
         password: '',
         firstName: '',
         lastName: '',
-        country: ''
+        country: '1'
     })
 
     function updateRegisterPayload(e) {
